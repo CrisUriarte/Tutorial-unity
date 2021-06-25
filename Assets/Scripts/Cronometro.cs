@@ -9,8 +9,8 @@ public class Cronometro : MonoBehaviour
     public GameObject motorCarretera;
     public MotorCarreteras scriptMotorCarretera;
 
-    private float tiempo = 30;
-    private float distancia;
+    public float tiempo = 30;
+    public float distancia;
     
    
 
