@@ -16,6 +16,7 @@ public class Cronometro : MonoBehaviour
 
     public Text txtTiempo;
     public Text txtDistancia;
+    public Text txtDistanciaFinal;
 
 
 
@@ -27,6 +28,7 @@ public class Cronometro : MonoBehaviour
 
         txtTiempo.text = "2:00";
         txtDistancia.text = "0";
+        
 
 
     }
@@ -43,6 +45,8 @@ public class Cronometro : MonoBehaviour
         if(tiempo <= 0 && scriptMotorCarretera.juegoTerminado == false)
         {
             scriptMotorCarretera.juegoTerminado = true;
+            scriptMotorCarretera.JuegoTerminadoEstados();
+            txtDistanciaFinal.text = ((int)distancia).ToString();
         }
         
     }
@@ -50,7 +54,7 @@ public class Cronometro : MonoBehaviour
     void CalculoTiempoDistancia()
     {
         distancia += Time.deltaTime * scriptMotorCarretera.velocidad;
-        txtDistancia.text = ((int)distancia).ToString();
+        txtDistancia.text = ((int)distancia).ToString() + "mts";
 
         tiempo -= Time.deltaTime;
         int minutos = (int)tiempo / 60;
